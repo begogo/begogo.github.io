@@ -12,10 +12,12 @@ categories:
 
 - **API(Application Programming Interface)**
   - 응용 프로그램에서 사용할 수 있도록, 운영 체제나 프로그래밍 언어가 제공하는 기능을 제어할 수 있게 만든 인터페이스
+  
   - 컴퓨터과학에서 'API' 개념 자체는 웹에 국한되지 않음 (Window API, 리눅스 API, Java API, Web API 등)
   - 웹 서비스도 일종의 인터페이스 기능을 한다는 면에선 API의 일종으로 볼 수 있고, 웹 HTTP 상에서(간혹 SMTP) 동작하는 API라고 이해했음
 - **웹 서비스**
   - 네트워크 상에서 서로 다른 종류의 디바이스들 간에 상호작용을 하기 위한 소프트웨어 시스템
+  
   - 애플리케이션들이 플랫폼과 프로그래밍 언어와는 독립된 방식으로 서로 통신할 수 있도록 하는 표준화된 기술
   - a service offered by an electronic device to another electronic device, communicating with each other via the World Wide Web, serving web documents (HTML, JSON, XML, images)
   - 처음에 '웹 서비스'라고 단어가 생긴 계기는 초창기에 나온 SOAP 방식이 서비스 지향적이다 보니 서비스란 단어가 쓰인 것 같음 
@@ -29,7 +31,7 @@ categories:
 
 
 <p align="center">
-  <img src="/assets/image/soap2.png" width="" height="" title="" alt=""><br>
+  <img src="/assets/image/SOAP2.png" width="" height="" title="" alt=""><br>
   출처: <a href="https://ettrends.etri.re.kr/ettrends/122/0905001533/25-2_112_120.pdf"><i>https://ettrends.etri.re.kr/ettrends/122/0905001533/25-2_112_120.pdf</i></a>
   </p>
 
@@ -133,8 +135,10 @@ categories:
 ---------------------------
 
 <br>
-## 참고자료
+## 참고자료  
 
+
+- 웹 서비스와 API
 
 <https://en.wikipedia.org/wiki/Web_service>
 
