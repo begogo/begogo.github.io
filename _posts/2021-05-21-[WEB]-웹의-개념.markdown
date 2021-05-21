@@ -8,6 +8,7 @@ categories:
 # 웹의 개념
 
 
+
 ## **1. 기초 용어 정리: 웹, 인터넷...**
 
 <p align="center">
@@ -319,9 +320,9 @@ categories:
     - 이더넷: 일반 금속 케이블/광케이블을 통해 데이터 전달
     - PPP: 사용자 인증 후 원격지의 장비와 통신
 
-통신 프로토콜 종류 일람 <https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D>
 
-참고자료  
+<br></br>
+## **참고자료**  
 
 - 웹과 인터넷  
   
