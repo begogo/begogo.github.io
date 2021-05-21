@@ -18,7 +18,7 @@ categories:
 
 + **인터넷 != 웹**  
 + **인터넷**: 컴퓨터로 연결하여 TCP/IP(Transmission Control Protocol/Internet Protocol)라는 통신 프로토콜을 이용해 정보를 주고받는 컴퓨터 네트워크
-+ **웹(World Wide Wep, WWW, W3)**: 인터넷 상에서 접근 가능한, URL로 식별되며 하이퍼링크로 연결되는 웹 리소스들이 있는 정보 공간<sup id="1">[1](#footnote1)</sup>  
++ **웹(World Wide Wep, WWW, W3)**: 인터넷 상에서 접근 가능한, URL로 식별되며 하이퍼링크로 연결되는 웹 리소스들이 있는 정보 공간  
     - HTML(HyperText Markup Language): 정보의 내용
       - 웹 페이지를 구성하는 마크업 언어로 정보자원 사이를 오가기 위한 하이퍼텍스트
       - 웹 브라우저 같은 HTML 처리 장치의 행동에 영향을 주는 자바스크립트와 웹 페이지의 외관과 배치를 정의하는 CSS 같은 스크립트를 불러올 수 있다.
@@ -34,7 +34,12 @@ categories:
 + 클라이언트-서버 모델: 서비스 요청자인 클라이언트와 서비스 자원의 제공자인 서버 간 작업을 분리해주는 분산 애플리케이션 구조이자 네트워크 아키텍처
 + 웹에서는 웹 서버가 서버 역할을 하고 사용자가 쓰는 웹 브라우저가 클라이언트 역할
 ### - 웹의 기초 동작원리
-![웹동작원리](/assets/image/webflow.png)<p align="center">웹의 동작원리: *<https://tcpschool.com/webbasic/works>*</p>
+
+<p align="center">
+    <img src="/assets/image/webflow.png" width="" height="" title="" alt=""><br>
+    웹의 동작원리: <a href="https://tcpschool.com/webbasic/works"><i>https://tcpschool.com/webbasic/works</i></a>
+</p>
+
 
 ①② 사용자가 웹 브라우저를 통해 찾고 싶은 웹 페이지의 URL 주소를 입력함  
 
@@ -321,35 +326,51 @@ categories:
 
 
 
-## 참고자료
+## 참고자료  
 
-https://www.w3.org/2003/glossary/
+
+웹과 인터넷  
+
+https://www.w3.org/2003/glossary/  
+
 
 https://www.w3.org/Help/#webinternet
 
+
 https://opentutorials.org/module/3097/18040
+
 
 https://en.wikipedia.org/wiki/Application_layer
 
+
+C-S 모델
+
 https://tcpschool.com/webbasic/works
+
 
 https://medium.com/videoblocks-engineering/web-architecture-101-a3224e126947
 
-https://developer.mozilla.org/ko/docs/Web/HTTP
 
-https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html
+HTTP
 
-https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn
-
-https://images.app.goo.gl/1xy1N2pDwePWMbGn6
-
-http://www.hakawati.co.kr/361
-
-https://en.wikipedia.org/wiki/Internet_protocol_suite
+https://developer.mozilla.org/ko/docs/Web/HTTP  
 
 
+https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html  
 
 
---------------------
+https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn  
 
-<a id="footnote1">1</a> 영문: an information space where documents and other web resources are identified by Uniform Resource Locators (URLs, such as https://example.com/), which may be interlinked by hyperlinks, and are accessible over the Internet. [↩](#1)
+
+https://images.app.goo.gl/1xy1N2pDwePWMbGn6  
+
+
+http://www.hakawati.co.kr/361  
+
+프로토콜  
+
+https://en.wikipedia.org/wiki/Internet_protocol_suite  
+
+https://33cram.tistory.com/60  
+
+https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D
