@@ -319,10 +319,7 @@ categories:
     - 이더넷: 일반 금속 케이블/광케이블을 통해 데이터 전달
     - PPP: 사용자 인증 후 원격지의 장비와 통신
 
-<참고자료> [통신 프로토콜 종류 일람](https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D)
-
-
------------------------
+<참고자료> [통신 프로토콜 종류 일람](https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D "링크")
 
 
 
@@ -331,46 +328,48 @@ categories:
 
 웹과 인터넷  
 
-https://www.w3.org/2003/glossary/  
+<https://www.w3.org/2003/glossary>  
 
 
-https://www.w3.org/Help/#webinternet
+<https://www.w3.org/Help/#webinternet>
 
 
-https://opentutorials.org/module/3097/18040
+<https://opentutorials.org/module/3097/18040>
 
 
-https://en.wikipedia.org/wiki/Application_layer
+<https://en.wikipedia.org/wiki/Application_layer>
 
 
 C-S 모델
 
-https://tcpschool.com/webbasic/works
+<https://tcpschool.com/webbasic/works>
 
 
-https://medium.com/videoblocks-engineering/web-architecture-101-a3224e126947
+<https://medium.com/videoblocks-engineering/web-architecture-101-a3224e126947>
 
 
 HTTP
 
-https://developer.mozilla.org/ko/docs/Web/HTTP  
+<https://developer.mozilla.org/ko/docs/Web/HTTP>  
 
 
-https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html  
+<https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html>  
 
 
-https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn  
+<https://stackoverflow.com/questions/4913343/what-is-the-difference-between-uri-url-and-urn>  
 
 
-https://images.app.goo.gl/1xy1N2pDwePWMbGn6  
+<https://images.app.goo.gl/1xy1N2pDwePWMbGn6>  
 
 
-http://www.hakawati.co.kr/361  
+<http://www.hakawati.co.kr/361>  
 
 프로토콜  
 
-https://en.wikipedia.org/wiki/Internet_protocol_suite  
+<https://en.wikipedia.org/wiki/Internet_protocol_suite>  
 
-https://33cram.tistory.com/60  
 
-https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D
+<https://33cram.tistory.com/60>  
+
+
+<https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D>
