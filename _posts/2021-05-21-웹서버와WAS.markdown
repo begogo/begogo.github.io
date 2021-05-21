@@ -77,6 +77,7 @@ categories:
 - Web Server가 필요한 이유?
 
     - 클라이언트(웹 브라우저)에 이미지 파일(정적 컨텐츠)을 보내는 과정을 생각해보자.
+    
         - 이미지 파일과 같은 정적인 파일들은 웹 문서(HTML 문서)가 클라이언트로 보내질 때 함께 가는 것이 아니다.
         - 클라이언트는 HTML 문서를 먼저 받고 그에 맞게 필요한 이미지 파일들을 다시 서버로 요청하면 그때서야 이미지 파일을 받아온다.
         - Web Server를 통해 정적인 파일들을 Application Server까지 가지 않고 앞단에서 빠르게 보내줄 수 있다.
@@ -85,6 +86,7 @@ categories:
 - WAS가 필요한 이유?
 
     - 웹 페이지는 정적 컨텐츠와 동적 컨텐츠가 모두 존재한다.
+
         - 사용자의 요청에 맞게 적절한 동적 컨텐츠를 만들어서 제공해야 한다.
         - 이때, Web Server만을 이용한다면 사용자가 원하는 요청에 대한 결과값을 모두 미리 만들어 놓고 서비스를 해야 한다.
         - 하지만 이렇게 수행하기에는 자원이 절대적으로 부족하다.
@@ -100,6 +102,7 @@ categories:
     - 물리적으로 분리하여 보안 강화
         - SSL에 대한 암복호화 처리에 Web Server를 사용
     - 여러 대의 WAS를 연결 가능
+
         - Load Balancing을 위해서 Web Server를 사용
         - fail over(장애 극복), fail back 처리에 유리
         - 특히 대용량 웹 어플리케이션의 경우(여러 개의 서버 사용) Web Server와 WAS를 분리하여 무중단 운영을 위한 장애 극복에 쉽게 대응할 수 있다.
@@ -129,21 +132,23 @@ categories:
 
 
 
-    1. Web Server는 웹 브라우저 클라이언트로부터 HTTP 요청을 받는다.
-    2. Web Server는 클라이언트의 요청(Request)을 WAS에 보낸다.
-    3. WAS는 관련된 Servlet을 메모리에 올린다.
-    4. WAS는 web.xml을 참조하여 해당 Servlet에 대한 Thread를 생성한다. (Thread Pool 이용)
-    5. HttpServletRequest와 HttpServletResponse 객체를 생성하여 Servlet에 전달한다.
-        5-1. Thread는 Servlet의 service() 메서드를 호출한다.
-        5-2. service() 메서드는 요청에 맞게 doGet() 또는 doPost() 메서드를 호출한다.
-        protected doGet(HttpServletRequest request, HttpServletResponse response)
-    6.doGet() 또는 doPost() 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달한다.
-    7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달한다.
-    8. 생성된 Thread를 종료하고, HttpServletRequest와 HttpServletResponse 객체를 제거한다.
+  1. Web Server는 웹 브라우저 클라이언트로부터 HTTP 요청을 받는다.
+
+  2. Web Server는 클라이언트의 요청(Request)을 WAS에 보낸다.
+  3. WAS는 관련된 Servlet을 메모리에 올린다.
+  4. WAS는 web.xml을 참조하여 해당 Servlet에 대한 Thread를 생성한다. (Thread Pool 이용)
+  5. HttpServletRequest와 HttpServletResponse 객체를 생성하여 Servlet에 전달한다.
+      5-1. Thread는 Servlet의 service() 메서드를 호출한다.
+      5-2. service() 메서드는 요청에 맞게 doGet() 또는 doPost() 메서드를 호출한다.
+      protected doGet(HttpServletRequest request, HttpServletResponse response)
+  6.doGet() 또는 doPost() 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달한다.
+  7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달한다.
+  8. 생성된 Thread를 종료하고, HttpServletRequest와 HttpServletResponse 객체를 제거한다.
 
 참고 DBMS와 MiddleWare의 개념
 
   - DBMS(Database Management System)
+
       - 다수의 사용자들이 DB 내의 데이터를 접근할 수 있도록 해주는 소프트웨어
       DBMS는 보통 Server 형태로 서비스를 제공한다.
       - MySQL, MariaDB, Oracle, PostgreSQL 등
@@ -174,6 +179,7 @@ categories:
 
 - **개념**
   - 서버사이드에서 Java 언어로 동적 웹페이지를 생성하는 프로그램
+
   - 웹 초창기 동적 데이터를 처리하던 애플릿의 단점(클라이언트 측에 내려받아 실행)을 극복
   - 클라이언트가 웹 브라우저를 통해 요청하면 서버에서 실행한 후 결과값만 클라이언트로 전송
   - 웹 기반의 요청에 대한 동적인 처리가 가능한 하나의 클래스로 동작
@@ -191,6 +197,7 @@ categories:
 
 
     1. Web Server는 HTTP request를 Web Container(Servlet Container)에게 위임한다.
+
         1) web.xml 설정에서 어떤 URL과 매핑되어 있는지 확인
         2) 클라이언트(browser)의 요청 URL을 보고 적절한 Servlet을 실행  
     2. Web Container는 service() 메서드를 호출하기 전에 Servlet 객체를 메모리에 올린다.
@@ -202,6 +209,7 @@ categories:
 
 - **단점**
   - 프로그램 소스에 HTML 문서 자체를 생성하는 부분도 함께 섞여 있어 동적으로 변해야 하는 데이터와 상관없는 글자색이나 폰트 변경 작업만으로도 소스를 수정하고 다시 컴파일 해야함
+
   - 서블릿 소스에 HTML 태그와 비즈니스 코드가 섞여 프로그래머와 디자이너와의 작업 분담을 어렵게 만듦
 
 
@@ -219,6 +227,7 @@ categories:
   - 일부 서블릿 객체는 변수 선언과 초기화 작업 없이 JSP에서 바로 사용 가능
   - 훨씬 간단한 코드로 구현 가능
 - 웹 애플리케이션에서의 역할 측면
+
   - 서블릿은 컨트롤러 페이지 만들 때 사용(뷰에서 들어온 요청을 받아서 처리하는 페이지)
   - JSP는 뷰 페이지 만들 때 사용(클라이언트가 보는 화면으로서 클라이언트로부터 요청받거나 처리된 결과를 보여주는 페이지)
 
@@ -229,6 +238,7 @@ categories:
 
 
 - Servlet 기술의 확장
+
   - Servlet를 보완한 스크립트 방식 표준
   - Servlet의 모든 기능 + 추가적인 기능
 
@@ -247,6 +257,7 @@ categories:
 
 
   - 클라이언트에서 ~.jsp에 대한 HTTP 요청을 보낸다. 
+  
   - JSP가 실행되면 WAS는 내부적으로 JSP 파일을 Java Servlet(.java)으로 변환한다.
   - WAS는 이 변환한 Servlet을 동작하여 필요한 기능을 수행한다.
       - Servlet의 동작
@@ -261,6 +272,7 @@ categories:
 **JSP의 특징**
 
   - 스크립트 언어이기 때문에 자바 기능을 그대로 사용할 수 있다.
+
   - Tomcat(WAS)이 이미 만들어놓은 객체(predefined values)를 사용한다. (request, response, session 등)
   - 사용자 정의 태그(custom tags)를 사용하여, 보다 효율적으로 웹 사이트를 구성할 수 있다.
     - JSTL(JSP Standard Tag Library, JSP 표준 태그 라이브러리)사용
@@ -291,6 +303,7 @@ categories:
     - 서비스 객체의 메소드를 호출하며 파라미터를 서비스 객체로 전달
     - 출력 뷰 페이지로 이동
 - Model
+
   - 서비스 처리를 담당하는 Service 객체와 데이터베이스 처리를 담당하는 DAO 객체
   - Service 객체 (Business 객체)
     - 서비스 처리를 하기 위한 내용으로만 구현된 객체
@@ -326,6 +339,7 @@ categories:
   - 클라이언트와는 직접 연결되지 않고 프레젠테이션 계층과 연결되어 실행
   - 일반 자바 코드로 구현
 - **영속 계층(DB)**
+
   - 데이터베이스 서버나 파일 시스템에 접근하여 데이터를 생성, 관리하는 기능을 담당
   - 비즈니스 계층에서 서비스를 처리할 때 영구적으로 저장된 데이터를 추출, 수정, 삭제 또는 생성하는 작업이 필요하다면 비즈니스 계층에서 구현되면 안 되고, 영속 계층에서 처리해야 함
   - 일반 자바 코드로 구현
@@ -333,7 +347,7 @@ categories:
 
 ------------------------------------
 
-<br></br>
+<br>
 ## 참고자료
 
 - 웹 서버

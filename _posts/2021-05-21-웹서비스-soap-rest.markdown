@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[WEB] 웹 서비스와 API | SOAP | RESTful"
+title:  "[WEB] 웹 서비스와 API | SOAP API | RESTful API"
 date:   2021-05-21 05:08:02 +0900
 categories: 
 ---
 
-## **웹 서비스와 API | SOAP | RESTful** 
+## **웹 서비스와 API | SOAP API | RESTful API** 
 
 **1. API와 웹 서비스**
 
@@ -18,9 +18,9 @@ categories:
   - 네트워크 상에서 서로 다른 종류의 디바이스들 간에 상호작용을 하기 위한 소프트웨어 시스템
   - 애플리케이션들이 플랫폼과 프로그래밍 언어와는 독립된 방식으로 서로 통신할 수 있도록 하는 표준화된 기술
   - a service offered by an electronic device to another electronic device, communicating with each other via the World Wide Web, serving web documents (HTML, JSON, XML, images)
-  - 시기적으로 현재보다 과거에 더 많이 쓰였던 단어라고 추측됨. 처음에 출현한 SOAP 방식이 서비스 지향이다 보니 서비스란 단어가 쓰인 것 같고, 그런 SOAP 방식을 쓰는 인터페이스 기술을 웹 서비스라고 불러왔던 것으로 보임 
-  - 웹 서비스와 Web API는 둘 다 웹 상에서 인터페이스 기능을 한다는 점에서 유의어 관계인 것처럼 보이면서도 엄밀히 따지면 차이가 있는 것 같음  
-    - '웹 서비스'는 과거 SOAP 방식의 인터페이스 기술 쪽에 무게를 더 두는 느낌 
+  - 처음에 '웹 서비스'라고 단어가 생긴 계기는 초창기에 나온 SOAP 방식이 서비스 지향적이다 보니 서비스란 단어가 쓰인 것 같음 
+  - 웹 서비스와 Web API는 둘 다 웹 상에서 인터페이스 기능을 한다는 점에서 유의어 관계인 것처럼 보이면서도 엄밀히 따진다면 차이가 있는 것 같음  
+    - '웹 서비스'는 현재 얘기하는 일반적인 Web API를 지칭할 때 쓰이기도 하지만, 특정 문맥에서는 과거 SOAP 방식의 인터페이스 기술 쪽에 무게를 더 두는 느낌 
     - 'Web API'는 후술하게 될 HTTP/RESTful API 쪽에 무게를 더 두는 느낌  
     - 요즘은 SOAP 방식은 잘 안 쓴다고 들었는데 그게 맞다면 누군가 '웹 서비스'란 단어를 사용했을 때, 문맥 상 SOAP 기술과 큰 관련이 없어 보이면 Web API 정도로 치환해서 이해해도 되지 않을까 생각 
 
@@ -68,32 +68,29 @@ categories:
 
 
 
-**REST란**
+**REST(Representational State Transfer)의 정의**  
 
-REST의 정의  
--  “Representational State Transfer” 의 약자  
-    - 자원을 이름(자원의 표현)으로 구분하여 해당 자원의 상태(정보)를 주고 받는 모든 것을 의미한다.
-    - 즉, 자원(resource)의 표현(representation) 에 의한 상태 전달  
-
-        -  자원(resource)의 표현(representation)  
-            - 자원: 해당 소프트웨어가 관리하는 모든 것  
-            - -> Ex) 문서, 그림, 데이터, 해당 소프트웨어 자체 등  
-            - 자원의 표현: 그 자원을 표현하기 위한 이름  
-            - -> Ex) DB의 학생 정보가 자원일 때, ‘students’를 자원의 표현으로 정한다.  
-        -  상태(정보) 전달
-            - 데이터가 요청되어지는 시점에서 자원의 상태(정보)를 전달한다.
-            - JSON 혹은 XML를 통해 데이터를 주고 받는 것이 일반적이다.
-    - 월드 와이드 웹(www)과 같은 분산 하이퍼미디어 시스템을 위한 소프트웨어 개발 아키텍처의 한 형식  
-        - REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 활용하기 때문에 웹의 장점을 최대한 활용할 수 있는 아키텍처 스타일이다.
-        - REST는 네트워크 상에서 Client와 Server 사이의 통신 방식 중 하나이다.  
+  - 자원을 이름(표현, Representational)으로 구분하여 해당 자원의 상태(State)를 주고 받는 것(Transfer)
+  
+      -  자원(resource)의 표현(representation)  
+          - 자원: 해당 소프트웨어가 관리하는 모든 것  
+          - -> Ex) 문서, 그림, 데이터, 해당 소프트웨어 자체 등  
+          - 자원의 표현: 그 자원을 표현하기 위한 이름  
+          - -> Ex) DB의 학생 정보가 자원일 때, ‘students’를 자원의 표현
+      -  상태(정보) 전달
+          - 데이터가 요청되어지는 시점에서 자원의 상태(정보)를 전달
+          - JSON 혹은 XML를 통해 데이터를 주고 받는 것이 일반적
+  - 월드 와이드 웹과 같은 분산 하이퍼미디어 시스템을 위한 소프트웨어 아키텍처 스타일  
+      - REST는 기본적으로 웹의 기존 기술과 HTTP 프로토콜을 그대로 활용하기 때문에 웹의 장점을 최대한 활용할 수 있는 아키텍처 스타일
+      - a way of providing interoperability between computer systems on the Internet.
 
 
-REST의 구체적인 개념
-- HTTP URI(Uniform Resource Identifier)를 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미한다.
-    - 즉, REST는 자원 기반의 구조(ROA, Resource Oriented Architecture) 설계의 중심에 Resource가 있고 HTTP Method를 통해 Resource를 처리하도록 설계된 아키텍쳐를 의미한다.  
+**REST의 구체적인 개념**
+- HTTP URI(Uniform Resource Identifier)와 MIME 타입을 통해 자원(Resource)을 명시하고, HTTP Method(POST, GET, PUT, DELETE)를 통해 해당 자원에 대한 CRUD Operation을 적용하는 것을 의미
+    - 즉, REST는 자원 기반의 구조(ROA, Resource Oriented Architecture) 설계의 중심에 Resource가 있고 HTTP Method를 통해 Resource를 처리하도록 설계된 아키텍쳐를 의미  
     - ROA(Resource Oriented Architecture): 인터넷의 모든 콘텐츠(예, HTML, 텍스트, 이미지, 이메일 등)를 리소스 로 활용하기  위한 구조로서  REST가  지향하는  서비스 구조이며, 서비스 중심의 SOA(Service Oriented Archi-tecture)와 대비되는 개념
     
-    - 웹 사이트의 이미지, 텍스트, DB 내용 등의 모든 자원에 고유한 ID인 HTTP URI를 부여한다.
+    - 웹 사이트의 이미지, 텍스트, DB 내용 등의 모든 자원에 고유한 ID인 HTTP URI를 부여 
     - CRUD Operation
         - Create : 생성(POST)
         - Read : 조회(GET)
@@ -101,39 +98,41 @@ REST의 구체적인 개념
         - Delete : 삭제(DELETE)
         - HEAD: header 정보 조회(HEAD)
 
-REST의 장단점
 
-    장점
-        HTTP 프로토콜의 인프라를 그대로 사용하므로 REST API 사용을 위한 별도의 인프라를 구출할 필요가 없다.
-        HTTP 프로토콜의 표준을 최대한 활용하여 여러 추가적인 장점을 함께 가져갈 수 있게 해준다.
-        HTTP 표준 프로토콜에 따르는 모든 플랫폼에서 사용이 가능하다.
-        Hypermedia API의 기본을 충실히 지키면서 범용성을 보장한다.
-        REST API 메시지가 의도하는 바를 명확하게 나타내므로 의도하는 바를 쉽게 파악할 수 있다.
-        여러가지 서비스 디자인에서 생길 수 있는 문제를 최소화한다.
-        서버와 클라이언트의 역할을 명확하게 분리한다.
-    단점
-        표준이 존재하지 않는다.
-        사용할 수 있는 메소드가 4가지 밖에 없다.
-            HTTP Method 형태가 제한적이다.
-        브라우저를 통해 테스트할 일이 많은 서비스라면 쉽게 고칠 수 있는 URL보다 Header 값이 왠지 더 어렵게 느껴진다.
-        구형 브라우저가 아직 제대로 지원해주지 못하는 부분이 존재한다.
-            PUT, DELETE를 사용하지 못하는 점
-            pushState를 지원하지 않는 점
-https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
+**REST를 구성하는 아키텍처 스타일**
 
+1. Client/Server Model: 월드 와이드 웹이 해당
+
+2. Stateless : 각 요청에 클라이언트의 context가 서버에 저장되어서는 안됨
+
+3. Cacheable : 클라이언트는 응답을 캐싱할 수 있어야 함
+
+4. Layered System : 클라이언트는 서버에 직접 연결되었는지 미들웨어에 연결되었는지 알 필요가 없어야 함
+
+5. Code on demand(option) : 서버에서 코드를 클라이언트에게 보내서 실행하게 할 수 있어야 함
+
+6. uniform interface : 자원은 유일하게 식별가능해야하고, HTTP Method로 표현을 담아야 하고, 메세지는 스스로를 설명(self-descriptive)해야하고, 하이퍼링크를 통해서 애플리케이션의 상태가 전이(HATEOAS: Hypermedia As The Engine Of Application State)되어야 함
+
+    - 왜 uniform interface에 강조가 되어있냐면, 1~5번의 제약 조건은 HTTP를 기반으로하는 REST는 HTTP에서 이미 충분히 지켜지고 있는 부분이라서 비교적 덜 주의를 기울여도 됨
+
+    - RESTful하려면 uniform interface를 잘 지켜야 하고, 그 중에서도 HATEOAS와 self-descriptive를 잘 지켜야 함
 
 
 
+**RESTful API란?**
 
-4. 그런 REST API로 괜찮은가
+- RESTful API라는 용어는 위의 REST 아키텍처 스타일을 충분히 만족하는 API
+
+- 엄밀히 정의한다면 RESTful 하지 않은 API는 HTTP API라고 표현하는 게 더 적합한 용어라고 한다.
 
 
-  TODO
+
+
 
 
 ---------------------------
 
-<br></br>
+<br>
 ## 참고자료
 
 
@@ -149,6 +148,11 @@ https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
 <https://softwareengineering.stackexchange.com/questions/38691/difference-between-web-api-and-web-service>
 
 
+<https://stackoverflow.com/questions/34388576/restful-web-services-and-restful-api>
+
+
+- SOAP, RESTful
+
 <https://www.nextree.co.kr/p11842>
 
 
@@ -161,10 +165,10 @@ https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
 <https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html>
 
 
-<https://stackoverflow.com/questions/34388576/restful-web-services-and-restful-api>
-
-
 <https://itwarehouses.tistory.com/5>
+
+
+<https://ko.wikipedia.org/wiki/REST>
 
 
 <https://stackoverflow.com/questions/671118/what-exactly-is-restful-programming?rq=1>
@@ -174,6 +178,8 @@ https://gmlwjd9405.github.io/2018/09/21/rest-and-restful.html
 
 
 <https://www.youtube.com/watch?v=RP_f5dMoHFc> (그런 REST API로 괜찮은가)
+
+<https://velog.io/@kjh03160/%EA%B7%B8%EB%9F%B0-REST-API%EB%A1%9C-%EA%B4%9C%EC%B0%AE%EC%9D%80%EA%B0%80>
 
 
 
