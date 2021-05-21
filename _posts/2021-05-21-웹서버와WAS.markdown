@@ -1,7 +1,379 @@
 ---
 layout: post
-title:  "[WEB] 웹 서버와 웹 애플리케이션 서버"
+title:  "[WEB] 웹 서버"
 date:   2021-05-21 05:08:02 +0900
 categories: 
 ---
+
+# [WEB] 웹 서버
+
+
+## **웹서버와 웹 애플리케이션 서버**
+
+
+**1. Web Server**
+
+- 개념
+
+    - 소프트웨어와 하드웨어로 구분된다.
+      1) 하드웨어: Web 서버가 설치되어 있는 컴퓨터
+      2) 소프트웨어: 웹 브라우저 클라이언트로부터 HTTP 요청을 받아 정적 컨텐츠(.html .jpeg 등)를 제공하는 프로그램
+    - HTTP 프로토콜을 기반으로 동작하므로 HTTP 서버라고도 함
+
+- 기능
+
+    - HTTP 프로토콜을 기반으로 하여 클라이언트(웹 브라우저 또는 웹 크롤러)의 요청을 서비스 하는 기능을 담당한다.
+    - 요청에 따라 아래의 두 가지 기능 중 적절하게 선택하여 수행한다.
+    - 기능 1)
+        - 정적인 컨텐츠 제공
+        - WAS를 거치지 않고 바로 자원을 제공한다.
+    - 기능 2)
+        - 동적인 컨텐츠 제공을 위한 요청 전달
+        - 클라이언트의 요청(Request)을 WAS에 보내고, WAS가 처리한 결과를 클라이언트에게 전달(응답, Response)한다.
+        - 클라이언트는 일반적으로 웹 브라우저를 의미한다.
+
+- 종류
+
+    - Apache HTTP Server, Nginx, Node.js, IIS(Windows 전용 Web 서버) 등
+
+  <p align="center">
+    <img src="/assets/image/UsageOfWebServer.png" width="" height="" title="" alt=""><br>
+    출처: <a href="https://w3techs.com/technologies/history_overview/web_server/ms/y"><i>https://w3techs.com/technologies/history_overview/web_server/ms/y</i></a>
+    </p>
+
+
+
+**2. 웹 애플리케이션 서버(Web Application Server / WAS / Application Server)**  
+
+- WAS의 개념
+
+    - DB 조회나 다양한 로직 처리를 요구하는 동적인 컨텐츠를 제공하기 위해 만들어진 Application Server
+    - HTTP를 통해 컴퓨터나 장치에 애플리케이션을 수행해주는 미들웨어(소프트웨어 엔진)이다.
+    - “웹 컨테이너(Web Container)” 혹은 “서블릿 컨테이너(Servlet Container)”라고도 불린다.
+        - Container란 JSP, Servlet을 실행시킬 수 있는 소프트웨어를 말한다.
+        - 즉, WAS는 JSP, Servlet 구동 환경을 제공한다.
+
+- WAS의 역할
+
+    - WAS = Web Server + Web Container
+    - Web Server 기능들을 구조적으로 분리하여 처리하고자하는 목적으로 제시되었다.
+        - 분산 트랜잭션, 보안, 메시징, 쓰레드 처리 등의 기능을 처리하는 분산 환경에서 사용된다.
+        - 주로 DB 서버와 같이 수행된다.
+    - 현재는 WAS가 가지고 있는 Web Server도 정적인 컨텐츠를 처리하는 데 있어서 성능상 큰 차이가 없다.
+
+- WAS의 주요 기능
+
+    - 프로그램 실행 환경과 DB 접속 기능 제공
+    - 여러 개의 트랜잭션(논리적인 작업 단위) 관리 기능
+    - 업무를 처리하는 비즈니스 로직 수행
+
+- WAS의 종류
+
+    - Apache Tomcat, JBoss, Jeus, WebSphere, WebLogic 등
+
+
+**3. Web Server와 WAS를 구분하는 이유**
+
+- Web Server가 필요한 이유?
+
+    - 클라이언트(웹 브라우저)에 이미지 파일(정적 컨텐츠)을 보내는 과정을 생각해보자.
+        - 이미지 파일과 같은 정적인 파일들은 웹 문서(HTML 문서)가 클라이언트로 보내질 때 함께 가는 것이 아니다.
+        - 클라이언트는 HTML 문서를 먼저 받고 그에 맞게 필요한 이미지 파일들을 다시 서버로 요청하면 그때서야 이미지 파일을 받아온다.
+        - Web Server를 통해 정적인 파일들을 Application Server까지 가지 않고 앞단에서 빠르게 보내줄 수 있다.
+    - 따라서 Web Server에서는 정적 컨텐츠만 처리하도록 기능을 분배하여 서버의 부담을 줄일 수 있다.
+
+- WAS가 필요한 이유?
+
+    - 웹 페이지는 정적 컨텐츠와 동적 컨텐츠가 모두 존재한다.
+        - 사용자의 요청에 맞게 적절한 동적 컨텐츠를 만들어서 제공해야 한다.
+        - 이때, Web Server만을 이용한다면 사용자가 원하는 요청에 대한 결과값을 모두 미리 만들어 놓고 서비스를 해야 한다.
+        - 하지만 이렇게 수행하기에는 자원이 절대적으로 부족하다.
+    - 따라서 WAS를 통해 요청에 맞는 데이터를 DB에서 가져와서 비즈니스 로직에 맞게 그때 그때 결과를 만들어서 제공함으로써 자원을 효율적으로 사용할 수 있다.
+
+- 그렇다면 WAS가 Web Server의 기능도 모두 수행하면 되지 않을까?
+
+    - 기능을 분리하여 서버 부하 방지
+        - WAS는 DB 조회나 다양한 로직을 처리하느라 바쁘기 때문에 단순한 정적 컨텐츠는 Web Server에서 빠르게 클라이언트에 제공하는 것이 좋다.
+        - WAS는 기본적으로 동적 컨텐츠를 제공하기 위해 존재하는 서버이다.
+        - 만약 정적 컨텐츠 요청까지 WAS가 처리한다면 정적 데이터 처리로 인해 부하가 커지게 되고, 동적 컨텐츠의 처리가 지연됨에 따라 수행 속도가 느려진다.
+        - 즉, 이로 인해 페이지 노출 시간이 늘어나게 될 것이다.
+    - 물리적으로 분리하여 보안 강화
+        - SSL에 대한 암복호화 처리에 Web Server를 사용
+    - 여러 대의 WAS를 연결 가능
+        - Load Balancing을 위해서 Web Server를 사용
+        - fail over(장애 극복), fail back 처리에 유리
+        - 특히 대용량 웹 어플리케이션의 경우(여러 개의 서버 사용) Web Server와 WAS를 분리하여 무중단 운영을 위한 장애 극복에 쉽게 대응할 수 있다.
+        - 예를 들어, 앞 단의 Web Server에서 오류가 발생한 WAS를 이용하지 못하도록 한 후 WAS를 재시작함으로써 사용자는 오류를 느끼지 못하고 이용할 수 있다.
+    - 여러 웹 어플리케이션 서비스 가능
+        - 예를 들어, 하나의 서버에서 PHP Application과 Java Application을 함께 사용하는 경우
+    - 기타
+        - 접근 허용 IP 관리, 2대 이상의 서버에서의 세션 관리 등도 Web Server에서 처리하면 효율적이다.
+
+- 즉, 자원 이용의 효율성 및 장애 극복, 배포 및 유지보수의 편의성 을 위해 Web Server와 WAS를 분리한다.  
+- Web Server를 WAS 앞에 두고 필요한 WAS들을 Web Server에 플러그인 형태로 설정하면 더욱 효율적인 분산 처리가 가능하다.
+
+**4. Server Architecture**
+
+  다양한 구조를 가질 수 있다.
+
+    1. Client -> Web Server -> DB
+    2. Client -> WAS -> DB
+    3. Client -> Web Server -> WAS -> DB
+
+3번 구조의 동작과정
+
+  <p align="center">
+    <img src="/assets/image/web-server-architecture.png" width="" height="" title="" alt=""><br>
+    출처: <a href="https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html"><i>https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html</i></a>
+    </p>
+
+
+
+    1. Web Server는 웹 브라우저 클라이언트로부터 HTTP 요청을 받는다.
+    2. Web Server는 클라이언트의 요청(Request)을 WAS에 보낸다.
+    3. WAS는 관련된 Servlet을 메모리에 올린다.
+    4. WAS는 web.xml을 참조하여 해당 Servlet에 대한 Thread를 생성한다. (Thread Pool 이용)
+    5. HttpServletRequest와 HttpServletResponse 객체를 생성하여 Servlet에 전달한다.
+        5-1. Thread는 Servlet의 service() 메서드를 호출한다.
+        5-2. service() 메서드는 요청에 맞게 doGet() 또는 doPost() 메서드를 호출한다.
+        protected doGet(HttpServletRequest request, HttpServletResponse response)
+    6.doGet() 또는 doPost() 메서드는 인자에 맞게 생성된 적절한 동적 페이지를 Response 객체에 담아 WAS에 전달한다.
+    7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달한다.
+    8. 생성된 Thread를 종료하고, HttpServletRequest와 HttpServletResponse 객체를 제거한다.
+
+<span style="color:yellow">참고</span> DBMS와 MiddleWare의 개념
+
+  - DBMS(Database Management System)
+      - 다수의 사용자들이 DB 내의 데이터를 접근할 수 있도록 해주는 소프트웨어
+      DBMS는 보통 Server 형태로 서비스를 제공한다.
+      - MySQL, MariaDB, Oracle, PostgreSQL 등
+      - Q) DBMS Server에 직접 접속해서 동작하는 Client Program의 문제점?
+        - Client에 로직이 많아지고 이에 따라 Client Program의 크기가 커진다.
+        - 로직이 변경될 때마다 매번 배포가 되어야 한다.
+        - Client에 대부분의 로직이 포함되어 배포가 되기 때문에 보안에 취약하다.
+      - A) => 이를 해결하기 위해 아래와 같은 MiddlWare가 등장했다.
+  - MiddleWare
+      - Client - MiddleWare Server - DB Server(DBMS)
+      - 동작 과정
+        - Client는 단순히 요청만 중앙에 있는 MiddleWare Server에게 보낸다.
+        - MiddleWare Server에서 대부분의 로직이 수행된다.
+        - 이때, 데이터를 조작할 일이 있으면 DBMS에 부탁한다.
+        - 로직의 결과를 Client에게 전송한다.
+        - Client는 그 결과를 화면에 보여준다.
+      - 즉, 비즈니스 로직을 Client와 DBMS 사이의 MiddleWare Server에서 동작하도록 함으로써 Client는 입력과 출력만 담당하게 된다.
+
+
+-------------------------------------
+
+
+
+## **자바 기반 웹 애플리케이션 기술**
+
+
+**1. Servlet**
+
+- **개념**
+  - 서버사이드에서 Java 언어로 동적 웹페이지를 생성하는 프로그램
+  - 웹 초창기 동적 데이터를 처리하던 애플릿의 단점(클라이언트 측에 내려받아 실행)을 극복
+  - 클라이언트가 웹 브라우저를 통해 요청하면 서버에서 실행한 후 결과값만 클라이언트로 전송
+  - 웹 기반의 요청에 대한 동적인 처리가 가능한 하나의 클래스로 동작
+  - HTTP 프로토콜로 통신하는 웹의 특성을 활용할 수 있는 API 제공하여 클라이언트의 요청과 서버의 응답에 관한 처리 작업을 쉽게 할 수 있게 해줌
+  - 기존의 CGI가 가지던 성능적인 약점, 메모리 문제, 단일 인스턴스로 인한 병목현상 등 해결
+    - CGI(Common Gateway Interface): 웹서버에서 외부 프로그램을 호출하고 수행 결과를 웹 브라우저로 전송하는 방식. 동시 접속자가 많아질수록 처리 효율이 떨어지는 단점
+
+- **Servlet Program의 기본적인 동작 과정**
+
+
+  <p align="center">
+    <img src="/assets/image/servlet-program.png" width="" height="" title="" alt=""><br>
+    출처: <a href="https://gmlwjd9405.github.io/2018/10/28/servlet.html"><i>https://gmlwjd9405.github.io/2018/10/28/servlet.html</i></a>
+    </p>
+
+
+    1. Web Server는 HTTP request를 Web Container(Servlet Container)에게 위임한다.
+        1) web.xml 설정에서 어떤 URL과 매핑되어 있는지 확인
+        2) 클라이언트(browser)의 요청 URL을 보고 적절한 Servlet을 실행  
+    2. Web Container는 service() 메서드를 호출하기 전에 Servlet 객체를 메모리에 올린다.
+        1) Web Container는 적절한 Servlet 파일을 컴파일(.class 파일 생성)한다.
+        2) .class 파일을 메모리에 올려 Servlet 객체를 만든다.
+        3) 메모리에 로드될 때 Servlet 객체를 초기화하는 init() 메서드가 실행된다.
+    3. Web Container는 Request가 올 때마다 thread를 생성하여 처리한다.
+        1) 각 thread는 Servlet의 단일 객체에 대한 service() 메서드를 실행한다.
+
+- **단점**
+  - 프로그램 소스에 HTML 문서 자체를 생성하는 부분도 함께 섞여 있어 동적으로 변해야 하는 데이터와 상관없는 글자색이나 폰트 변경 작업만으로도 소스를 수정하고 다시 컴파일 해야함
+  - 서블릿 소스에 HTML 태그와 비즈니스 코드가 섞여 프로그래머와 디자이너와의 작업 분담을 어렵게 만듦
+
+
+
+
+**2. JSP(Java Server Page)**
+
+**개념** 
+
+- Java 언어를 기반으로 하는 스크립트 언어
+- 기능면에서 서블릿과 동일하게 동적 웹 페이지를 생성하는, 웹에서 실행되는 애플리케이션 기술이지만, 표현방법과 웹 애플리케이션에서의 역할이 다름  
+- 표현방법 측면 
+  - 서블릿은 완벽하게 자바 언어로 구현하지만, JSP는 HTML 페이지 안에서 스크립트 형태로 구현
+    - 정적인 HTML과 동적으로 생성된 contents(HTTP 요청 파라미터)를 혼합하여 사용할 수 있음
+  - 일부 서블릿 객체는 변수 선언과 초기화 작업 없이 JSP에서 바로 사용 가능
+  - 훨씬 간단한 코드로 구현 가능
+- 웹 애플리케이션에서의 역할 측면
+  - 서블릿은 컨트롤러 페이지 만들 때 사용(뷰에서 들어온 요청을 받아서 처리하는 페이지)
+  - JSP는 뷰 페이지 만들 때 사용(클라이언트가 보는 화면으로서 클라이언트로부터 요청받거나 처리된 결과를 보여주는 페이지)
+
+<p align="center">
+  <img src="/assets/image/jsp-example.png" width="" height="" title="" alt=""><br>
+  출처: <a href="https://gmlwjd9405.github.io/2018/11/03/jsp.html"><i>https://gmlwjd9405.github.io/2018/11/03/jsp.html</i></a>
+  </p>
+
+
+- Servlet 기술의 확장
+  - Servlet를 보완한 스크립트 방식 표준
+  - Servlet의 모든 기능 + 추가적인 기능
+
+<p align="center">
+  <img src="/assets/image/jsp-definition.png" width="" height="" title="" alt=""><br>
+  출처: <a href="https://gmlwjd9405.github.io/2018/11/03/jsp.html"><i>https://gmlwjd9405.github.io/2018/11/03/jsp.html</i></a>
+  </p>
+
+
+**JSP의 내부적인 동작 과정**
+
+<p align="center">
+  <img src="/assets/image/jsp-process2.jpg" width="" height="" title="" alt=""><br>
+  출처: <a href="https://images.app.goo.gl/jsRuAq9SGuFTTdrx7"><i>https://images.app.goo.gl/jsRuAq9SGuFTTdrx7</i></a>
+  </p>
+
+
+  - 클라이언트에서 ~.jsp에 대한 HTTP 요청을 보낸다. 
+  - JSP가 실행되면 WAS는 내부적으로 JSP 파일을 Java Servlet(.java)으로 변환한다.
+  - WAS는 이 변환한 Servlet을 동작하여 필요한 기능을 수행한다.
+      - Servlet의 동작
+      1) WAS는 사용자 요청에 맞는 적절한 Servlet 파일을 컴파일(.class 파일 생성)한다.
+      2) .class 파일을 메모리에 올려 Servlet 객체를 만든다.
+      3) 메모리에 로드될 때 Servlet 객체를 초기화하는 init() 메서드가 실행된다.
+      4) WAS는 Request가 올 때마다 thread를 생성하여 처리한다.
+      5) 각 thread는 Servlet의 단일 객체에 대한 service() 메서드를 실행한다.
+      6) service() 메서드는 요청에 맞는 적절한 메서드(doGet, doPost 등)를 호출한다.
+  - 수행 완료 후 생성된 데이터를 웹 페이지와 함께 클라이언트로 응답한다.
+
+**JSP의 특징**
+
+  - 스크립트 언어이기 때문에 자바 기능을 그대로 사용할 수 있다.
+  - Tomcat(WAS)이 이미 만들어놓은 객체(predefined values)를 사용한다. (request, response, session 등)
+  - 사용자 정의 태그(custom tags)를 사용하여, 보다 효율적으로 웹 사이트를 구성할 수 있다.
+    - JSTL(JSP Standard Tag Library, JSP 표준 태그 라이브러리)사용
+  - HTML 코드 안에 Java 코드가 있기 때문에 HTML 코드를 작성하기 쉽다.
+  - Servlet과 다르게 JSP는 수정된 경우 재배포할 필요 없이 Tomcat(WAS)이 알아서 처리해준다.
+
+
+
+
+**3. 자바 기반 웹 애플리케이션 디자인 패턴 (MVC 패턴을 중심으로)**
+
+**MVC 패턴**
+
+- 애플리케이션을 Model, View, Controller 영역으로 구분하여 작업
+- 서로 간의 결합도를 최소화, 유지보수성은 증대하여 개발의 효율성을 극대화
+- View
+  - 클라이언트가 보는 화면
+  - 클라이언트로부터 요청이 일어나거나 처리된 결과를 보여주는 페이지
+  - HTML, CSS, JavaScript, JSP를 사용해 작성
+  - 뷰 페이지의 디자인은 개발자와 별개로 디자이너가 담당
+- Controller
+  - 뷰에서 클라이언트가 서비스를 요청했을 때 실행되는 페이지
+  - 서비스를 처리하는 메소드를 호출함으로써 클라이언트 요청과 서비스 처리 객체를 연결해주는 중계 역할을 하면서 서비스 처리 흐름을 제어
+  - 컨트롤러의 기능
+    - 뷰에서 들어온 요청을 받음
+    - 클라이언트가 전달한 파라미터를 추출
+    - 파라미터의 유효성을 검사. 검사에 실패하면 다시 입력 뷰로 이동
+    - 서비스 객체의 메소드를 호출하며 파라미터를 서비스 객체로 전달
+    - 출력 뷰 페이지로 이동
+- Model
+  - 서비스 처리를 담당하는 Service 객체와 데이터베이스 처리를 담당하는 DAO 객체
+  - Service 객체 (Business 객체)
+    - 서비스 처리를 하기 위한 내용으로만 구현된 객체
+    - 평범한 일반 자바(POJO, Plain Old Java Object)로 작성
+  - DAO(Data Access Object) 객체
+    - 데이터베이스 처리에 관한 기능만으로 구성되는 객체
+    - POJO로 작성
+
+**MVC 모델1과 모델2**
+
+<p align="center">
+  <img src="/assets/image/mvc.png" width="" height="" title="" alt=""><br>
+  출처: <a href="https://preamtree.tistory.com/11"><i>https://preamtree.tistory.com/11</i></a>
+  </p>
+
+
+<p align="center">
+  <img src="/assets/image/mvc-model-diff.png" width="" height="" title="" alt=""><br>
+  출처: <a href="https://preamtree.tistory.com/11"><i>https://preamtree.tistory.com/11</i></a>
+  </p>
+
+**3계층 아키텍처**
+
+- 웹 애플리케이션의 구조적 측면
+- 각 영역이 독립적으로 이루어져 하나의 영역에서 변경이 일어났을 때 다른 영역에 변경된 내용이 영향을 미치지 않아, 서로 간의 의존성은 최소화하고 독립성은 최대화할 수 있다는 것
+- **프레젠테이션 계층(컨트롤러, 뷰)**
+  - 최상위에 위치한 영역
+  - 클라이언트와 애플리케이션 간에 상호작용할 수 있게 하는 인터페이스 역할
+  - 클라이언트로부터 서비스를 요청받아 비즈니스 계층의 메소드를 호출하거나, 클라이언트가 보낸 데이터를 비즈니스 계층으로 전달하는 기능만 구현
+  - HTML, CSS, JavaScript, JSP, Servlet 등 사용
+- **비즈니스 계층(모델)**
+  - 클라이언트가 요청한 서비스를 처리하는 비즈니스 로직이 구현되는 영역
+  - 클라이언트와는 직접 연결되지 않고 프레젠테이션 계층과 연결되어 실행
+  - 일반 자바 코드로 구현
+- **영속 계층(DB)**
+  - 데이터베이스 서버나 파일 시스템에 접근하여 데이터를 생성, 관리하는 기능을 담당
+  - 비즈니스 계층에서 서비스를 처리할 때 영구적으로 저장된 데이터를 추출, 수정, 삭제 또는 생성하는 작업이 필요하다면 비즈니스 계층에서 구현되면 안 되고, 영속 계층에서 처리해야 함
+  - 일반 자바 코드로 구현
+
+
+------------------------------------
+
+
+## 참고자료
+
+- 웹 서버
+
+https://en.wikipedia.org/wiki/Web_server
+
+
+https://en.wikipedia.org/wiki/Application_server
+
+
+https://stackoverflow.com/questions/936197/what-is-the-difference-between-application-server-and-web-server?answertab=votes#tab-top
+
+
+https://stackoverflow.com/questions/23140274/how-does-the-w3c-define-a-web-application
+
+
+https://w3techs.com/technologies/history_overview/web_server/ms/y
+
+
+https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html
+
+
+- 서블릿, JSP, MVC
+
+
+https://www.youtube.com/watch?v=JE2hNFniPJU (Servlet에서 JSP로의 변천사)
+
+
+처음 해보는 Servelet & JSP 웹 프로그래밍 (오정임, 2018)
+
+
+https://gmlwjd9405.github.io/2018/10/28/servlet.html
+
+
+https://gmlwjd9405.github.io/2018/11/03/jsp.htm
+
+
+https://images.app.goo.gl/jsRuAq9SGuFTTdrx7
+
+
+https://preamtree.tistory.com/11l
+
 
