@@ -319,14 +319,13 @@ categories:
     - 이더넷: 일반 금속 케이블/광케이블을 통해 데이터 전달
     - PPP: 사용자 인증 후 원격지의 장비와 통신
 
-<참고자료> [통신 프로토콜 종류 일람](https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D "링크")
-
+<참고자료> 통신 프로토콜 종류 일람 <https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D>
 
 
 ## 참고자료  
 
 
-웹과 인터넷  
+- 웹과 인터넷  
 
 <https://www.w3.org/2003/glossary>  
 
@@ -340,7 +339,7 @@ categories:
 <https://en.wikipedia.org/wiki/Application_layer>
 
 
-C-S 모델
+- C-S 모델
 
 <https://tcpschool.com/webbasic/works>
 
@@ -348,7 +347,7 @@ C-S 모델
 <https://medium.com/videoblocks-engineering/web-architecture-101-a3224e126947>
 
 
-HTTP
+- HTTP
 
 <https://developer.mozilla.org/ko/docs/Web/HTTP>  
 
@@ -364,7 +363,8 @@ HTTP
 
 <http://www.hakawati.co.kr/361>  
 
-프로토콜  
+
+- 프로토콜  
 
 <https://en.wikipedia.org/wiki/Internet_protocol_suite>  
 
