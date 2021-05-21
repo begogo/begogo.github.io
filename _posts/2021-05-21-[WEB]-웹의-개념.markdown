@@ -59,7 +59,7 @@ categories:
 
 ⑫ 변환된 웹 페이지 데이터는 웹 브라우저에 의해 출력되어 사용자가 볼 수 있게 됨
 
-### - 현대 웹 아키텍처 개요
+### - 현대 웹 아키텍처
 
 
 <p align="center">
@@ -319,16 +319,12 @@ categories:
     - 이더넷: 일반 금속 케이블/광케이블을 통해 데이터 전달
     - PPP: 사용자 인증 후 원격지의 장비와 통신
 
-<참고자료> 통신 프로토콜 종류 일람 <https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D>  
+통신 프로토콜 종류 일람 <https://t1.daumcdn.net/cfile/tistory/163CBE334F9E92D12D>
 
-
-
-
-## 참고자료  
-
+참고자료  
 
 - 웹과 인터넷  
-
+  
 <https://www.w3.org/2003/glossary>  
   
 <https://www.w3.org/Help/#webinternet>  
