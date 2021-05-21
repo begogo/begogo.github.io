@@ -141,7 +141,7 @@ categories:
     7. WAS는 Response 객체를 HttpResponse 형태로 바꾸어 Web Server에 전달한다.
     8. 생성된 Thread를 종료하고, HttpServletRequest와 HttpServletResponse 객체를 제거한다.
 
-<span style="color:yellow">참고</span> DBMS와 MiddleWare의 개념
+참고 DBMS와 MiddleWare의 개념
 
   - DBMS(Database Management System)
       - 다수의 사용자들이 DB 내의 데이터를 접근할 수 있도록 해주는 소프트웨어
@@ -333,47 +333,47 @@ categories:
 
 ------------------------------------
 
-
+<br></br>
 ## 참고자료
 
 - 웹 서버
 
-https://en.wikipedia.org/wiki/Web_server
+<https://en.wikipedia.org/wiki/Web_server>
 
 
-https://en.wikipedia.org/wiki/Application_server
+<https://en.wikipedia.org/wiki/Application_server>
 
 
-https://stackoverflow.com/questions/936197/what-is-the-difference-between-application-server-and-web-server?answertab=votes#tab-top
+<https://stackoverflow.com/questions/936197/what-is-the-difference-between-application-server-and-web-server?answertab=votes#tab-top>
 
 
-https://stackoverflow.com/questions/23140274/how-does-the-w3c-define-a-web-application
+<https://stackoverflow.com/questions/23140274/how-does-the-w3c-define-a-web-application>
 
 
-https://w3techs.com/technologies/history_overview/web_server/ms/y
+<https://w3techs.com/technologies/history_overview/web_server/ms/y>
 
 
-https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html
+<https://gmlwjd9405.github.io/2018/10/27/webserver-vs-was.html>
 
 
 - 서블릿, JSP, MVC
 
 
-https://www.youtube.com/watch?v=JE2hNFniPJU (Servlet에서 JSP로의 변천사)
+<https://www.youtube.com/watch?v=JE2hNFniPJU> (Servlet에서 JSP로의 변천사)
 
 
 처음 해보는 Servelet & JSP 웹 프로그래밍 (오정임, 2018)
 
 
-https://gmlwjd9405.github.io/2018/10/28/servlet.html
+<https://gmlwjd9405.github.io/2018/10/28/servlet.html>
 
 
-https://gmlwjd9405.github.io/2018/11/03/jsp.htm
+<https://gmlwjd9405.github.io/2018/11/03/jsp.htm>
 
 
-https://images.app.goo.gl/jsRuAq9SGuFTTdrx7
+<https://images.app.goo.gl/jsRuAq9SGuFTTdrx7>
 
 
-https://preamtree.tistory.com/11l
+<https://preamtree.tistory.com/11>
 
 
